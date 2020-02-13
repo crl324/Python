@@ -1,0 +1,73 @@
+
+#############################################################
+# By: Chris Lanz
+# Date: 1/19/2018
+#################################################################
+
+
+import math
+
+
+Easting=400000
+Northing=4000000
+
+Angle=30 # in degrees
+Distance=100 # in meters
+
+AngleInRadians=math.radians(Angle)
+
+ChangeInEasting=math.sin(AngleInRadians)*Distance # Change Easting
+
+print(ChangeInEasting)
+
+NewEasting=Easting+ChangeInEasting
+
+print(NewEasting) 
+
+
+print("**************")
+
+
+
+ChangeInNorthing=math.cos(AngleInRadians)*Distance # Change in Northing
+
+print(ChangeInNorthing)
+
+NewNorthing=Northing+ChangeInNorthing
+
+print(format(NewEasting)+","+format(NewNorthing))
+
+
+print("**************")
+
+
+
+x=100 # in feet
+y=0.3048 # meters within feet. 
+ConvertingFeetToMeters=(x*y)
+print(ConvertingFeetToMeters)
+
+
+print("*********")
+
+
+acres=1 #Acres
+Hectares=acres*2.47105 # Converting Acres to Hectares
+print(Hectares)  #Hectares 
+
+
+
+print("**************")
+
+Pie=math.pi #pie
+Radius=5 # 5 inches
+Circumfrence=2*Pie*Radius 
+print("The Circumfrence of a Circle with a Radius "+format(Radius)+" is "+format(Circumfrence))
+
+
+
+print("**************")
+
+Millimeters=1
+ConvertToKilo=1000000*Millimeters #converting to kilometers
+print(format(Millimeters)+" Millimeter is equal to "+format(ConvertToKilo)+" kilometers")
