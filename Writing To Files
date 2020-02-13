@@ -1,0 +1,80 @@
+################################################
+#By:Christopher Lanz
+#GSP 318
+#Lab 4
+################################################
+
+
+import math
+
+print("***********************")
+
+TheFile=open("C:/temp/MovementsWithLegs.csv","w") #designates the name of file, also 'w' also user to write to file. 
+TheFile.write("walk,run,jump,skip,leap\n") #
+print("walk,run,jump,skip,leap\n")
+walk=1
+run=2
+jump=3
+skip=4
+leap=5
+count=0
+while(count<5):
+    TheFile.write(format(count+walk)+","+(format(count+run))+","+(format(count+skip))+","+(format(count+jump))+","+(format(count+leap))+"\n")
+    print(format(count+walk)+","+(format(count+run))+","+(format(count+skip))+","+(format(count+jump))+","+(format(count+leap)))
+
+    count+=1
+TheFile.close()
+
+print("************************")
+
+TheFile=open("C:/temp/Points.csv","w") #designates the name of file, also 'w' also user to write to file. 
+TheFile.write("Lat,Long\n")#
+Lat=[40.869776999999999,40.870524500000002,40.871451000000000,40.872746300000003,40.874172000000002,40.875767900000000,40.875407099999997,40.872472600000002,40.871335400000000,40.869866399999999,40.869166499999999,40.866413000000001,40.865774299999998,40.867137300000003,40.866675299999997,40.869776999999999,40.870896600000002]
+Long=[-124.087565100000010,-124.086856600000000,-124.090088600000000,-124.097962999999990,-124.101522000000000,-124.101525100000000,-124.095725700000000,124.095721999999990,-124.089530500000000,-124.086665800000010,-124.087415200000000,-124.088025400000010,-124.084812799999990,-124.084940200000010,-124.085140000000000,-124.087565100000010,-124.085446600000000]
+print("lat,long\n")
+count=0
+while(count<=16):
+    TheFile.write(format(Lat[count])+","+(format(Long[count]))+"\n")
+    print(format(Lat[count])+","+(format(Long[count]))+"\n")
+
+    count+=1
+TheFile.close
+
+
+print("*************************************")
+
+TheFile=open("C:/temp/PointsWithAttributes.csv","w") #designates the name of file, also 'w' also user to write to file. 
+TheFile.write("Lat,Long,BusStops\n")#
+Lat=[40.869776999999999,40.870524500000002,40.871451000000000,40.872746300000003,40.874172000000002,40.875767900000000,40.875407099999997,40.872472600000002,40.871335400000000,40.869866399999999,40.869166499999999,40.866413000000001,40.865774299999998,40.867137300000003,40.866675299999997,40.869776999999999,40.870896600000002]
+Long=[-124.087565100000010,-124.086856600000000,-124.090088600000000,-124.097962999999990,-124.101522000000000,-124.101525100000000,-124.095725700000000,124.095721999999990,-124.089530500000000,-124.086665800000010,-124.087415200000000,-124.088025400000010,-124.084812799999990,-124.084940200000010,-124.085140000000000,-124.087565100000010,-124.085446600000000]
+BusStops=["10th  & G st","11th & H st","11th & K","11th & Q","Green View Market","Zehnder & S st.","Zehnder & Q st","11th & Q st","11th & K st","H & 10th st. (Minor Theatre)","H & 9th st.","H & 6th st.","Uniontown Shopping Center","City Hall","Transit Center","10th & G st.","12th & G st."]
+print("lat,long,BusStops\n")
+count=0
+while(count<=16):
+    TheFile.write(format(Lat[count])+","+(format(Long[count]))+","+(format(BusStops[count])+"\n"))
+    print(format(Lat[count])+","+(format(Long[count]))+","+(format(BusStops[count])+"\n"))
+
+    count+=1
+TheFile.close
+
+print("*************************************")
+
+TheFile=open("C:/temp/Raster.asc","w")
+TheFile.write("ncols 10\n")   #columns  
+TheFile.write("nrows 10\n") #rows
+TheFile.write("xllcorner     1.0\n")        #make sure to when always copying from onine, open it up. 
+TheFile.write("yllcorner     1.0\n")    #location of y left corner
+TheFile.write("tllcorner     1.0\n")
+TheFile.write("ollcorner     1.0\n")
+TheFile.write("cellsize      1.0\n")
+TheFile.write("NODATA_value  -9999\n")
+
+
+count=0
+for i in range(0,10):       #number of rows writiing out has to match the number in the top rows above. 
+    fun=math.pow(count,i)
+    TheFile.write(format(i)+" "+format(fun)+" "+format(fun*count)+" "+format(fun*count)+" "+format(fun*count+1)+" "+format(fun*count+2)+" "+format(fun*count+3)+" "+format(fun*count+4)+" "+format(fun*count+5)+" "+format(fun*count+6)+"\n")   #make sure to when always copying from onine, open it up. 
+    print(format(i)+" "+format(fun)+" "+format(fun*count)+" "+format(fun*count)+" "+format(fun*count+1)+" "+format(fun*count+2)+" "+format(fun*count+3)+" "+format(fun*count+4)+" "+format(fun*count+5)+" "+format(fun*count+6)+"\n")
+    count+=1
+    TheFile.write("\n")
+TheFile.close()
